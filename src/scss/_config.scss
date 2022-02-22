@@ -1,0 +1,72 @@
+$font-stack: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif, "Open Sans";
+$secondary-font-stack: "Kalam", cursive;
+
+// set transitions:
+@mixin transition($prop, $duration, $timing-function, $delay: 0s) {
+    -webkit-transition: $prop $duration $timing-function $delay;
+    -moz-transition: $prop $duration $timing-function $delay;
+    -o-transition: $prop $duration $timing-function $delay;
+    -ms-transition: $prop $duration $timing-function $delay;
+    transition: $prop $duration $timing-function $delay;
+}
+
+// set transforms:
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    transform: $transforms;
+}
+// translate:
+@mixin translate($x, $y) {
+    @include transform(translate($x, $y));
+}
+// scale:
+@mixin scale($factor) {
+    @include transform(scale($factor));
+}
+
+//set animations:
+@mixin keyframe($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+@mixin animation($animation, $delay, $duration, $timing-function: ease, $fillmode: forwards) {
+    -webkit-animation-name: $animation;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-timing-function: $timing-function;
+    -webkit-animation-fill-mode: $fillmode;
+
+    -moz-animation-name: $animation;
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-timing-function: $timing-function;
+    -moz-animation-fill-mode: $fillmode;
+
+    -o-animation-name: $animation;
+    -o-animation-delay: $delay;
+    -o-animation-duration: $duration;
+    -o-animation-timing-function: $timing-function;
+    -o-animation-fill-mode: $fillmode;
+
+    animation-name: $animation;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-timing-function: $timing-function;
+    animation-fill-mode: $fillmode;
+}
