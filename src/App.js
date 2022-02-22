@@ -36,6 +36,24 @@ function App() {
         contrastText: '#fff',
       }
     },
+    typography: {
+      h1: {
+        fontSize: '6rem',
+        '@media (max-width:600px)': {
+          fontSize: '5rem',
+        },
+      },
+        h3: {
+          fontSize: '3rem',
+          '@media (max-width:600px)': {
+            fontSize: '2.5rem',
+          },
+          '@media (max-width:400px)': {
+            fontSize: '2.3rem',
+          },
+        }
+      },
+    
   });
 
   return (

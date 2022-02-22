@@ -87,15 +87,15 @@ const NavBar = (props) => {
                         >
                             {navLinks.map((navLink) => (
                                 <MenuItem key={navLink.text} onClick={handleCloseNavMenu} >
-                                    <Link href={navLink.url} underline="none">{navLink.text}</Link>
+                                    <Link href={navLink.url} underline="none" color='primary.dark'>{navLink.text}</Link>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
 
-                    <SupervisedUserCircleRoundedIcon color="secondary" sx={{ mr: 0.5, display: { xs: 'flex', md: 'none' } }} />
-                    <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        The Users Library
+                    <WorkTwoToneIcon color="secondary" sx={{ mr: 1, display: { xs: 'flex', md: 'none' } }} />
+                    <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, fontFamily: '"Kalam", cursive', paddingTop: '5px' }}>
+                        <b>Portfolio</b>
                     </Typography>
                     <Box sx={{ flexGrow: 20 }} />
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

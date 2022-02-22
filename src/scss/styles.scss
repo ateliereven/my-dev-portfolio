@@ -13,6 +13,7 @@ html {
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -61,3 +62,9 @@ html {
         transform: translateY(0);
     }
 }
+
+#about {
+    min-height: 100vh;
+}
+
+@import "mobile";
