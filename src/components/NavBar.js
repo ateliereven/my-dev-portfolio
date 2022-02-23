@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
-import { AppBar, Toolbar, Typography, Button, Slide, useScrollTrigger, Box, IconButton, Menu, MenuItem, Link} from '@mui/material';
-import SupervisedUserCircleRoundedIcon from '@mui/icons-material/SupervisedUserCircleRounded';
+import { AppBar, Toolbar, Typography, Slide, useScrollTrigger, Box, IconButton, Menu, MenuItem, Link} from '@mui/material';
 import WorkTwoToneIcon from '@mui/icons-material/WorkTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
 

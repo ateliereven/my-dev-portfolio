@@ -10,7 +10,9 @@
 body,
 html {
     min-height: 100vh;
+    display: flex;
     flex-direction: column;
+    position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
@@ -39,7 +41,7 @@ html {
     position: absolute;
     background-image: linear-gradient(rgba(255, 0, 0, 0), #f7f7f7 70%);
     height: inherit;
-    width: 100vw;
+    width: 100%;
 }
 
 .slideDown {
