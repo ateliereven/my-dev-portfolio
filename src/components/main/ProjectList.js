@@ -1,9 +1,11 @@
 import React from "react";
 import { Typography, Box, Container, Grid, CircularProgress } from "@mui/material";
 
+
 import ProjectCard from './ProjectCard';
 
 const ProjectList = ({ id, projects }) => {
+
     const renderList = (projects) => {
         return projects.map(project => {
             return <ProjectCard
@@ -18,13 +20,12 @@ const ProjectList = ({ id, projects }) => {
     }
 
     return (
-        <Box id={id} component="div" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <Typography variant="h3" color="primary.dark" sx={{ pb: 2, pt: 2, textTransform: 'capitalize' }}>
+        <Box id={id} component="div" sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="h4" color="primary.dark" sx={{ pb: 3, pt: 3, textTransform: 'capitalize' }}>
                 {id}
             </Typography>
             { projects ?
-                <Grid container spacing={4} justifyContent="center"
-                    alignItems="center">
+                <Grid container spacing={7} >
                     {renderList(projects)}
                 </Grid> :
                 <Container sx={{ py: 8 }} maxWidth="md">

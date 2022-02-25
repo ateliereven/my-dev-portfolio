@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import { AppBar, Toolbar, Typography, Slide, useScrollTrigger, Box, IconButton, Menu, MenuItem, Link} from '@mui/material';
+import { AppBar, Toolbar, Typography, Slide, useScrollTrigger, Box, IconButton, Menu, MenuItem, Link } from '@mui/material';
 import WorkTwoToneIcon from '@mui/icons-material/WorkTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
+
+import DarkModeSwitch from "./DarkModeSwitch";
 
 // for hiding the header on scroll:
 function HideOnScroll(props) {
@@ -38,6 +40,10 @@ const NavBar = (props) => {
             text: 'Snippets',
             url: '#snippets'
         },
+        {
+            text: 'Contact',
+            url: '#contact'
+        },
     ];
 
     // for responsive menu button:
@@ -46,11 +52,18 @@ const NavBar = (props) => {
     const handleOpenNavMenu = event => setAnchorElNav(event.currentTarget);
     const handleCloseNavMenu = () => setAnchorElNav(null);
 
+    // for dark mode switch button:
+    const [checked, setChecked] = React.useState(false);
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+        props.changeMode(checked ? 'dark' : 'light');
+    }
+
+    
     return <>
         <HideOnScroll {...props}>
             <AppBar>
                 <Toolbar>
-
                     <WorkTwoToneIcon color="secondary" sx={{ mr: 1, display: { xs: 'none', md: 'flex' } }} />
                     <Typography variant="h6" color="inherit" noWrap sx={{ display: { xs: 'none', md: 'flex' }, fontFamily: '"Kalam", cursive', paddingTop: '5px' }}>
                         <b>Portfolio</b>
@@ -89,6 +102,11 @@ const NavBar = (props) => {
                                     <Link href={navLink.url} underline="none" color='primary.dark'>{navLink.text}</Link>
                                 </MenuItem>
                             ))}
+                            <MenuItem>
+                                    <DarkModeSwitch checked={checked} onChange={handleChange} sx={{ml: -1}}/>
+                                <Typography variant="body2" color='primary.dark'>{`${checked ? 'dark' : 'light'} mode`}</Typography>
+                                 
+                            </MenuItem>
                         </Menu>
                     </Box>
 
@@ -109,13 +127,15 @@ const NavBar = (props) => {
                                 </Typography>
                             </Link>
                         ))}
-                    </Box>
-
+                        <Box sx={{display: 'flex', alignItems: 'center'}}>
+                        <DarkModeSwitch checked={checked} onChange={handleChange} />
+                        <Typography variant="span" sx={{fontSize: '11px'}}>{`${checked ? 'dark' : 'light'} mode`}</Typography> 
+                        </Box>                 
+                    </Box>   
                 </Toolbar>
-
             </AppBar>
-
         </HideOnScroll>
+
         <Toolbar />
     </>
 }

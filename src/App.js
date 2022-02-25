@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -11,6 +11,12 @@ import Footer from "./components/Footer";
 
 function App() {
 
+const [mode, setMode] = useState('light');
+
+// passing a callback function to NavBar as props:
+const handleChangeMode = (chosenMode) => {
+setMode(chosenMode);
+}
   // set color theme for the app:
   const theme = createTheme({
     palette: {
@@ -60,7 +66,7 @@ function App() {
     <div >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-      <NavBar />
+      <NavBar changeMode={handleChangeMode} />
       <Header />
       <Main />
       <Footer />

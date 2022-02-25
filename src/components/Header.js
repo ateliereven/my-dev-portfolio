@@ -23,21 +23,21 @@ const Header = () => {
                         <Tooltip title="view Github profile">
                         <IconButton  size="large" aria-label="view Github profile">
                             <Link href="https://github.com/ateliereven" target="_blank" >
-                                <GitHubIcon color="info" sx={{width: '35px', height: '35px'}}/>
+                                    <GitHubIcon color="info" fontSize="large"/>
                             </Link>
                         </IconButton>
                         </Tooltip>
                         <Tooltip title="view Linkedin profile">
                         <IconButton color="info" size="large" aria-label="view Linkedin profile">
                             <Link href="https://www.linkedin.com/in/orly-even/" target="_blank" >
-                                <LinkedInIcon color="info" sx={{ width: '35px', height: '35px' }}/>
+                                    <LinkedInIcon color="info" fontSize="large"/>
                         </Link>
                         </IconButton>
                         </Tooltip>
                         <Tooltip title="contact me">
                         <IconButton color="info" size="large" aria-label="contact">
                             <Link href="mailto:orly@atelier-even.com" target="_blank" >
-                                <EmailIcon color="info" sx={{ width: '35px', height: '35px' }}/>
+                                    <EmailIcon color="info" fontSize="large"/>
                             </Link>
                         </IconButton>
                     </Tooltip>

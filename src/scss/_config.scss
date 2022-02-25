@@ -1,6 +1,7 @@
 $font-stack: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif, "Open Sans";
 $secondary-font-stack: "Kalam", cursive;
+$primary-color-dark: #4f7377;
 
 // set transitions:
 @mixin transition($prop, $duration, $timing-function, $delay: 0s) {
