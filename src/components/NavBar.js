@@ -56,7 +56,7 @@ const NavBar = (props) => {
     const [checked, setChecked] = React.useState(false);
     const handleChange = (event) => {
         setChecked(event.target.checked);
-        props.changeMode(checked ? 'dark' : 'light');
+        props.changeMode(checked ? 'light' : 'dark');
     }
 
     

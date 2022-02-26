@@ -4,12 +4,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
-const Header = () => {
+const Header = ({mode}) => {
     return <div className="header">
-        <div className="gradient">
+        <div className={mode === 'light' ? "gradient" : 'dark-gradient'}>
         <Container className="slideDown" maxWidth="lg" sx={{display: 'flex', height: 'inherit'}}>
             <Box sx={{ display: 'inline-flex', flexDirection: 'column', margin: 'auto'}}>
-                    <Typography variant="h1" color="primary" sx={{ textShadow: '3px 3px 4px #96697b'}}>
+                    <Typography variant="h1" color="primary.dark" sx={{ textShadow: '3px 3px 4px #96697b'}}>
                         <i>Orly Even</i>
                 </Typography>
                 <Typography variant="h3" color="primary.dark">

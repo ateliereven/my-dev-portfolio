@@ -26,7 +26,7 @@ const About = () => {
                             key={skill}
                             variant="contained"
                             color="secondary"
-                            sx={{ borderRadius: '18px', alignSelf: 'center', textTransform: 'none', margin: '6px !important', cursor: 'auto' }} >
+                            sx={{ borderRadius: '18px', alignSelf: 'center', textTransform: 'none', margin: '6px !important', cursor: 'auto'}} >
                             {skill}
                         </Button>
                     ))}
@@ -40,8 +40,7 @@ const About = () => {
                         <Button
                             key={skill}
                             variant="outlined"
-                            color="primary"
-                            sx={{ borderRadius: '18px', alignSelf: 'center', textTransform: 'none', margin: '6px !important', cursor: 'auto' }} >
+                            sx={{ borderRadius: '18px', alignSelf: 'center', textTransform: 'none', margin: '6px !important', cursor: 'auto', color: 'primary.dark' }} >
                             {skill}
                         </Button>
                     ))}

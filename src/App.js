@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState, useMemo } from "react";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -10,37 +11,64 @@ import Main from "./components/main/Main";
 import Footer from "./components/Footer";
 
 function App() {
+//enable dark mode by user preference:
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [mode, setMode] = useState(prefersDarkMode ? 'dark' : 'light');
 
-const [mode, setMode] = useState('light');
+  // passing a callback function to NavBar as props:
+  const handleChangeMode = (chosenMode) => {
+    setMode(chosenMode);
+  }
 
-// passing a callback function to NavBar as props:
-const handleChangeMode = (chosenMode) => {
-setMode(chosenMode);
-}
-  // set color theme for the app:
-  const theme = createTheme({
+  // set color theme for the app, update theme only if the mode changes:
+  const theme = useMemo(() => createTheme({
     palette: {
-      primary: {
-        light: '#add3d7',
-        main: '#7da2a6',
-        dark: '#4f7377',
-        contrastText: '#fff',
-      },
-      secondary: {
-        light: '#ffffff',
-        main: '#e4e4e4',
-        dark: '#b2b2b2',
-        contrastText: '#000',
-      },
-      background: {
-        default: '#f7f7f7'
-      },
-      info: {
-        light: '#c797aa',
-        main: '#96697b',
-        dark: '#673e4f',
-        contrastText: '#fff',
+      mode,
+      ...(mode === "light" ?
+      {
+        primary: {
+          light: '#aecfd9',
+          main: '#7e9ea8',
+          dark: '#517079',
+          contrastText: '#fff',
+        },
+        secondary: {
+          light: '#ffffff',
+          main: '#dddddd',
+          dark: '#b2b2b2',
+          contrastText: '#000',
+        },
+        background: {
+          default: '#f7f7f7'
+        },
+        info: {
+          light: '#c797aa',
+          main: '#96697b',
+          dark: '#78515c',
+          contrastText: '#fff',
+        }
+      } : {
+          primary: {
+          light: '#517079',
+          main: '#7395a0',
+          dark: '#aecfd9',
+            contrastText: '#fff',
+          },
+          secondary: {
+            light: '#ffffff',
+            main: '#b2b2b2',
+            dark: '#b2b2b2',
+            contrastText: '#fff',
+          },
+
+          info: {
+            light: '#c797aa',
+            main: '#c797aa',
+            dark: '#673e4f',
+            contrastText: '#fff',
+          }
       }
+      )
     },
     typography: {
       h1: {
@@ -49,27 +77,27 @@ setMode(chosenMode);
           fontSize: '5rem',
         },
       },
-        h3: {
-          fontSize: '3rem',
-          '@media (max-width:600px)': {
-            fontSize: '2.5rem',
-          },
-          '@media (max-width:400px)': {
-            fontSize: '2.3rem',
-          },
-        }
-      },
-    
-  });
+      h3: {
+        fontSize: '3rem',
+        '@media (max-width:600px)': {
+          fontSize: '2.5rem',
+        },
+        '@media (max-width:400px)': {
+          fontSize: '2.3rem',
+        },
+      }
+    },
+  }), [mode]
+  );
 
   return (
     <div >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-      <NavBar changeMode={handleChangeMode} />
-      <Header />
-      <Main />
-      <Footer />
+        <NavBar changeMode={handleChangeMode} />
+        <Header mode={mode}/>
+        <Main />
+        <Footer />
       </ThemeProvider>
     </div>
   );

@@ -2,12 +2,11 @@ import React, { useState, useRef } from "react";
 import { Field, Form } from 'react-final-form';
 import { init } from '@emailjs/browser';
 import { send } from 'emailjs-com';
-import { Typography, Container, Button, Box, Grid, TextField, InputAdornment } from "@mui/material";
+import { Typography, Container, Button, Box, Grid, TextField, InputAdornment, Slide } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import SendIcon from '@mui/icons-material/Send';
-import Slide from '@mui/material/Slide';
 
 
 export default function Contact() {
@@ -16,7 +15,7 @@ export default function Contact() {
 
     const FIELDS = [
         { label: 'Name', name: 'name', icon: <AccountCircle />, placeholder: 'Please enter your name' },
-        { label: 'Email', name: 'email', icon: <EmailIcon />, placeholder: 'Please enter your email address' },
+        { label: 'Email', name: 'email', icon: <EmailIcon/>, placeholder: 'Please enter your email' },
         { label: 'Message', name: 'message', icon: <ChatIcon />, placeholder: 'Drop me a message :)' },
     ];
     // create form fields:
@@ -52,11 +51,12 @@ export default function Contact() {
                 maxRows={6}
                 InputProps={{
                     startAdornment: (
-                        <InputAdornment position="start">
+                        <InputAdornment position="start" >
                             {icon}
                         </InputAdornment>
                     ),
                 }}
+
             />
         );
     }
@@ -114,9 +114,10 @@ export default function Contact() {
                                     noValidate
                                     onSubmit={handleSubmit}
                                     sx={{
-                                        '& .MuiOutlinedInput-root': { borderRadius: '15px', backgroundColor: 'secondary.light' },
-                                        '& .MuiInputLabel-root': { color: 'black', top: '-10px' },
-                                        '& .MuiTextField-root': { m: 2.5, minWidth: '85%' }
+                                        '& .MuiOutlinedInput-root': { borderRadius: '15px', color: 'secondary.contrastText' },
+                                        '& .MuiInputLabel-root': { color: 'secondary.contrastText', top: '-10px' },
+                                        '& .MuiTextField-root': { m: 2.5, minWidth: '85%' },
+                                        '& .MuiOutlinedInput-input': { fontWeight: 500}
                                     }}
                                 >
                                     <Grid container >

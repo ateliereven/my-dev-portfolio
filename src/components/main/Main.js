@@ -15,7 +15,7 @@ import weather from '../../img/weather.jpg';
 const Main = () => {
     const [AllProjects, setAllProjects] = useState([]);
     const projects = AllProjects.filter(project => { return (project.name === 'atelier-even-website' || project.name === 'my-sender') }).reverse();
-    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender') }).reverse();
+    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender' && project.name !== 'my-dev-porfolio') }).reverse();
     const projectImgUrl = useMemo(() => {
         return [
             atelierEven,
