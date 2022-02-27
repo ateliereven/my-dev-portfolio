@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Stack, Button, Box } from "@mui/material";
 
 const About = () => {
-    const skills = ['JavaScript', 'ES6+', 'HTML5', 'CSS3', 'React.js', 'Redux', 'Node.js', 'Express', 'MongoDB', 'jQuery', 'Sass', 'Bootstrap', 'Meterial-UI', 'Git'];
+    const skills = ['React.js', 'JavaScript', 'ES6+', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Express', 'MongoDB', 'jQuery', 'Sass', 'Bootstrap', 'Meterial-UI', 'Git'];
     const extraSkills = ['Photoshop', 'Illustrator', 'In-design', 'AutoCAD', 'Sketchup', 'Kerkythea', 'V-ray'];
 
     return (
@@ -11,10 +11,10 @@ const About = () => {
                 About
             </Typography>
             <Typography>
-                I'm a creative self-taught web developer and architect (M.A) with high analytical & design skills, shifting to the high-tech industry. In search of my next professional challenge, and eager to experiment with new programming technologies, I am currently seeking a position in Frontend/Fullstack Development.
+                I'm a creative self-taught web developer, designer and architect (M.A) with high analytical & graphical skills, shifting to the high-tech industry. I am currently seeking a position in Frontend/Fullstack Development in search of my next professional challenge, and I'm eager to experiment with new programming technologies.
             </Typography>
             <Typography>
-                I also hold over 10 years of work experience in architectural planning and design of large-scale projects, alongside academic-teaching experience at the Technion (Israel Institute of Technology). My next work environment could benefit from my experience in web programming languages and advanced frameworks, and also from my knowledge and abilities as a detail-oriented architect.
+                I also hold over 10 years of work experience in design and architectural planning of large-scale projects, alongside academic-teaching experience in these fields at the Technion (IIT). My next work environment could benefit from my experience in web programming languages and advanced frameworks, and also from my knowledge and abilities as a detail-oriented architect.
             </Typography>
             <Box component='div'>
                 <Typography variant="h5" color="primary.dark" sx={{ pb: 0.5, pt: 2 }}>

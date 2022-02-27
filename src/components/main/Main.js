@@ -15,7 +15,7 @@ import weather from '../../img/weather.jpg';
 const Main = () => {
     const [AllProjects, setAllProjects] = useState([]);
     const projects = AllProjects.filter(project => { return (project.name === 'atelier-even-website' || project.name === 'my-sender') }).reverse();
-    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender' && project.name !== 'my-dev-porfolio') }).reverse();
+    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender') }).reverse();
     const projectImgUrl = useMemo(() => {
         return [
             atelierEven,
@@ -38,13 +38,14 @@ const Main = () => {
         // else make get request from api and save to local storage:
         else {
             const response = await github.get('/users/ateliereven/repos');
-            for (let i = 0; i < response.data.length; i++) {
-                response.data[i].image = projectImgUrl[i];
+            const results = response.data.filter(project => { return (project.name !== 'my-dev-portfolio')});
+            for (let i = 0; i < results.length; i++) {
+                results[i].image = projectImgUrl[i];
             }
-            localStorage.setItem("repos", JSON.stringify(response.data));
+            localStorage.setItem("repos", JSON.stringify(results));
             const expiration = Number(new Date()) + 3600 * 1000 * 24; // expires in 24 hours
             localStorage.setItem("expiration", expiration);
-            setAllProjects(response.data);
+            setAllProjects(results);
         }
 
     }, [projectImgUrl])
