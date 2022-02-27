@@ -11,6 +11,7 @@ const ProjectCard = ({name, description, image, deploymentUrl, repoUrl}) => {
     return <Grid item xs={12} md={6} lg={6}>
         <Card elevation={6} className="card" sx={{ backgroundColor: 'primary.main'}}>
             <CardActionArea >
+                <Link href={deploymentUrl} target="_blank">
                 <CardContent component='div'>
                     <Paper elevation={4} component='img' src={image} />
                 </CardContent>
@@ -22,6 +23,7 @@ const ProjectCard = ({name, description, image, deploymentUrl, repoUrl}) => {
                         {description}
                     </Typography>
                 </CardContent>
+                </Link>
             </CardActionArea>
             <CardActions  sx={{ backgroundColor: 'primary.light' }}>
                 <Tooltip title="view code">
