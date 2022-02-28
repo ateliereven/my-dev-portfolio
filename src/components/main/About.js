@@ -46,35 +46,41 @@ const About = () => {
                     ))}
                 </Stack>
             </Box>
-            <Box component='div'>
+            <Box component='div' sx={{ '& div': { py: 0.5 }, '& div p:first-child': { fontWeight: '600'}}}>
                 <Typography variant="h5" color="primary.dark" sx={{ pb: 0.5, pt: 2 }}>
                     Courses I've taken:
                 </Typography>
-                <Box component='div' sx={{ py: 0.5 }}>
-                    <Typography sx={{ fontWeight: '600' }}>React and Typescript (Udemy - currently studying)</Typography>
+                <Box component='div'>
+                    <Typography>React and Typescript (Udemy - currently studying)</Typography>
                     <Typography >
                         Integrating React and Redux together with Typescript. Package-based architecture, Redux middlewares, Web Assembly.
                     </Typography>
                 </Box >
-                <Box component='div' sx={{ py: 0.5 }}>
-                    <Typography sx={{ fontWeight: '600' }}>Node with React: Fullstack Web Development (Udemy)</Typography>
+                <Box component='div'>
+                    <Typography>Node with React: Fullstack Web Development (Udemy)</Typography>
                     <Typography >
                         Node.js, React.js, Redux, Express and MongoDB. Including OAuth, payments and emailing using a backend server.
                     </Typography>
                 </Box >
-                <Box component='div' sx={{ py: 0.5 }}>
-                    <Typography sx={{ fontWeight: '600' }}>Modern React with Redux (Udemy)</Typography>
+                <Box component='div'>
+                    <Typography>Modern React with Redux (Udemy)</Typography>
                     <Typography >
                         React.js and Redux, including React Router, Webpack, Babel, hooks, context and CRUD apps.
                     </Typography>
                 </Box >
-                <Box component='div' sx={{ py: 0.5 }}>
-                    <Typography sx={{ fontWeight: '600' }}>JavaScript Algorithms and Data Structures (Udemy)</Typography>
+                <Box component='div'>
+                    <Typography>JavaScript Algorithms and Data Structures (Udemy)</Typography>
                 </Box >
-                <Box component='div' sx={{ py: 0.5 }}>
-                    <Typography sx={{ fontWeight: '600' }}>Front-End Track (she codes;)</Typography>
+                <Box component='div'>
+                    <Typography>Front-End Track (she codes;)</Typography>
                     <Typography >
                         Web (HTML5, CSS3, JavaScript), JS ES6+, OOP in JS, AJAX, Typescript, Node.js , React.js + Redux.
+                    </Typography>
+                </Box >
+                <Box component='div'>
+                    <Typography>Git (she codes;)</Typography>
+                    <Typography >
+                        Web developer workflow, commands, local branching, team work.
                     </Typography>
                 </Box >
             </Box>
