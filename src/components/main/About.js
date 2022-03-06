@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Stack, Button, Box } from "@mui/material";
 
 const About = () => {
-    const skills = ['React.js', 'JavaScript', 'ES6+', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Express', 'MongoDB', 'jQuery', 'Sass', 'Bootstrap', 'Meterial-UI', 'Git'];
+    const skills = ['React.js', 'JavaScript', 'ES6+', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Sass', 'Meterial-UI', 'Git', 'jQuery'];
     const extraSkills = ['Photoshop', 'Illustrator', 'In-design', 'AutoCAD', 'Sketchup', 'Kerkythea', 'V-ray'];
 
     return (
@@ -46,14 +46,14 @@ const About = () => {
                     ))}
                 </Stack>
             </Box>
-            <Box component='div' sx={{ '& div': { py: 0.5 }, '& div p:first-child': { fontWeight: '600'}}}>
+            <Box component='div' sx={{ '& div': { py: 0.5 }, '& div p:first-of-type': { fontWeight: '600'}}}>
                 <Typography variant="h5" color="primary.dark" sx={{ pb: 0.5, pt: 2 }}>
                     Courses I've taken:
                 </Typography>
                 <Box component='div'>
                     <Typography>React and Typescript (Udemy - currently studying)</Typography>
                     <Typography >
-                        Integrating React and Redux together with Typescript. Package-based architecture, Redux middlewares, Web Assembly.
+                        Integrating React and Redux together with Typescript. TS design patterns, Package-based architecture, Redux middlewares, Web Assembly.
                     </Typography>
                 </Box >
                 <Box component='div'>

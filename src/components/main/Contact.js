@@ -90,7 +90,7 @@ export default function Contact() {
         <Box
             component="div"
             id="contact"
-            sx={{ backgroundImage: 'linear-gradient(rgba(255, 0, 0, 0), #4f7377 88%)', pb: 10 }}>
+            sx={{ pb: 10 }}>
             <Container maxWidth="md">
                 <Typography variant="h4" color="primary.dark" sx={{ pb: 3, pt: 3 }}>
                     Contact Me
