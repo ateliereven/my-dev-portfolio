@@ -50,11 +50,19 @@ background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox=
 .gradient {
     @extend %gradient;
     background-image: linear-gradient(rgba(255, 255, 255, 0) 10%, #f7f7f7 80%);
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 10%, #f7f7f7 80%);
+    background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 10%, #f7f7f7 80%);
+    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 10%, #f7f7f7 80%);
+    background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 10%, #f7f7f7 80%);
 }
 
 .dark-gradient {
     @extend %gradient;
     background-image: linear-gradient(rgba(255, 255, 255, 0) , #121212 90%);
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) , #121212 90%);
+    background-image: -o-linear-gradient(rgba(255, 255, 255, 0) , #121212 90%);
+    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) , #121212 90%);
+    background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) , #121212 90%);
 }
 
 .slideDown {
@@ -87,6 +95,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox=
 
 #contact {
     background-image: linear-gradient(rgba(255, 255, 255, 0) 20%, $primary-color-dark 92%);
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 20%, $primary-color-dark 92%);
+    background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 20%, $primary-color-dark 92%);
+    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 20%, $primary-color-dark 92%);
+    background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 20%, $primary-color-dark 92%);
      display: flex;
     flex-direction: column;
     justify-content: center;
