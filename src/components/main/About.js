@@ -1,12 +1,12 @@
 import React from "react";
-import { Typography, Stack, Button, Box } from "@mui/material";
+import { Typography, Stack, Button, Box, Link } from "@mui/material";
 
 const About = () => {
     const skills = ['React.js', 'JavaScript', 'ES6+', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Sass', 'Meterial-UI', 'Git', 'jQuery'];
     const extraSkills = ['Photoshop', 'Illustrator', 'In-design', 'AutoCAD', 'Sketchup', 'Kerkythea', 'V-ray'];
 
     return (
-        <Box id="about" component="div" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Box id="about" component="div" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', '& div h5': {pb: 0.5, pt: 2} }}>
             <Typography variant="h4" color="primary.dark" sx={{ pb: 2, pt: 2 }}>
                 About
             </Typography>
@@ -14,10 +14,10 @@ const About = () => {
                 I'm a creative self-taught web developer, designer and architect (M.A) with high analytical & graphical skills, shifting to the high-tech industry. I am currently seeking a position in Frontend/Fullstack Development in search of my next professional challenge, and I'm eager to experiment with new programming technologies.
             </Typography>
             <Typography>
-                I also hold over 10 years of work experience in design and architectural planning of large-scale projects, alongside academic-teaching experience in these fields at the Technion (IIT). My next work environment could benefit from my experience in web programming languages and advanced frameworks, and also from my knowledge and abilities as a detail-oriented architect.
+                I also hold over 10 years of work experience in design and architectural planning of large-scale projects, alongside academic-teaching experience in these fields at the Technion (IIT). My next work environment could benefit from my knowledge and abilities in web programming languages and advanced frameworks, and also from my vast experience in multi-professional team collaboration as a detail-oriented architect. 
             </Typography>
             <Box component='div'>
-                <Typography variant="h5" color="primary.dark" sx={{ pb: 0.5, pt: 2 }}>
+                <Typography variant="h5" color="primary.dark">
                     My development skills:
                 </Typography>
                 <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -32,7 +32,7 @@ const About = () => {
                     ))}
                 </Stack>
 
-                <Typography variant="h5" color="primary.dark" sx={{ pb: 0.5, pt: 2 }}>
+                <Typography variant="h5" color="primary.dark">
                     Extra skills:
                 </Typography>
                 <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -46,14 +46,29 @@ const About = () => {
                     ))}
                 </Stack>
             </Box>
-            <Box component='div' sx={{ '& div': { py: 0.5 }, '& div p:first-of-type': { fontWeight: '600'}}}>
-                <Typography variant="h5" color="primary.dark" sx={{ pb: 0.5, pt: 2 }}>
+            <Box 
+            component='div' 
+            sx={{ 
+                '& div': { py: 0.5 }, 
+                '& div p:first-of-type': { fontWeight: '600'}, 
+                '& a': {color: 'primary.dark'}
+                }}>
+                <Typography variant="h5" color="primary.dark">
                     Courses I've taken:
                 </Typography>
                 <Box component='div'>
                     <Typography>React and Typescript (Udemy - currently studying)</Typography>
                     <Typography >
                         Integrating React and Redux together with Typescript. TS design patterns, Package-based architecture, Redux middlewares, Web Assembly.
+                    </Typography>
+                </Box >
+                <Box component='div'>
+                    <Typography>OJT Class (CoderZ)</Typography>
+                    <Typography >
+                        Collaborative team development of a MERN fullstack SPA (React, Typescript, Nest.js, MongoDB), employing a Scrum/Agile project management methodology (tech sprint boards with Trello).
+                    </Typography>
+                    <Typography >
+                        Watch what the course instructor had to say about my work (min. 35 onward): <Link href="https://www.youtube.com/watch?v=tU7l_B-nnVM&t=3351s" target="_blank">writing technical tasks</Link>; check out my <Link href="https://docs.google.com/document/d/1cADvJlXWElx7O3gdTTS9c7QTEsI8luQ4x7EO0GIouCE/edit?usp=sharing" target="_blank">porject architecture and task breakdown</Link>.
                     </Typography>
                 </Box >
                 <Box component='div'>

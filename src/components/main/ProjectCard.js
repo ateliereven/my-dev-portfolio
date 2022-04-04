@@ -19,7 +19,7 @@ const ProjectCard = ({name, description, image, deploymentUrl, repoUrl}) => {
                     <Typography gutterBottom variant="h5" component="div" color="primary.contrastText" sx={{ textTransform: 'capitalize' }}>
                         {name.replace(/-/g, ' ')}
                     </Typography>
-                    <Typography variant="body2" color="primary.contrastText" gutterBottom={true} >
+                    <Typography  color="primary.contrastText" gutterBottom={true} >
                         {description}
                     </Typography>
                 </CardContent>
