@@ -25,7 +25,7 @@ const ProjectList = ({ id, projects }) => {
                 {id}
             </Typography>
             { projects ?
-                <Grid container spacing={7} >
+                <Grid container spacing={2} sx={{justifyContent: 'center'}}>
                     {renderList(projects)}
                 </Grid> :
                 <Container sx={{ py: 8 }} maxWidth="md">

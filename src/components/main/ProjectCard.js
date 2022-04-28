@@ -8,14 +8,14 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 
 const ProjectCard = ({name, description, image, deploymentUrl, repoUrl}) => {
-    return <Grid item xs={12} md={6} lg={6}>
+    return <Grid item xs={12} md={4} lg={4}>
         <Card elevation={6} className="card" sx={{ backgroundColor: 'primary.main'}}>
             <CardActionArea >
                 <Link href={deploymentUrl} target="_blank">
                 <CardContent component='div'>
                     <Paper elevation={4} component='img' src={image} />
                 </CardContent>
-                <CardContent sx={{ minHeight: '240px'}}>
+                <CardContent sx={{ minHeight: '245px', paddingBottom: '8px !important', paddingTop: '5px'}}>
                     <Typography gutterBottom variant="h5" component="div" color="primary.contrastText" sx={{ textTransform: 'capitalize' }}>
                         {name.replace(/-/g, ' ')}
                     </Typography>

@@ -11,17 +11,19 @@ import mysender from '../../img/my-sender.png';
 import tradingApp from '../../img/trading-app.png';
 import usersLibrary from '../../img/users-library.jpg';
 import weather from '../../img/weather.jpg';
+import notebook from '../../img/notebook-js-ts.png';
 
 const Main = () => {
     const [AllProjects, setAllProjects] = useState([]);
-    const projects = AllProjects.filter(project => { return (project.name === 'atelier-even-website' || project.name === 'my-sender') }).reverse();
-    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender') }).reverse();
+    const projects = AllProjects.filter(project => { return (project.name === 'atelier-even-website' || project.name === 'my-sender' || project.name === 'notebook-js-ts') }).reverse();
+    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender' && project.name !== 'notebook-js-ts') }).reverse();
     const projectImgUrl = useMemo(() => {
         return [
             atelierEven,
             cardGame,
             tradingApp,
             mysender,
+            notebook,
             usersLibrary,
             weather,
         ]
@@ -38,7 +40,9 @@ const Main = () => {
         // else make get request from api and save to local storage:
         else {
             const response = await github.get('/users/ateliereven/repos');
-            const results = response.data.filter(project => { return (project.name !== 'my-dev-portfolio')});
+            const results = response.data.filter(project => {
+                return (project.name !== 'my-dev-portfolio' && project.name !== 'ateliereven')
+            });
             for (let i = 0; i < results.length; i++) {
                 results[i].image = projectImgUrl[i];
             }
