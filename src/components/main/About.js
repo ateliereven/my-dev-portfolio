@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Stack, Button, Box, Link } from "@mui/material";
 
 const About = () => {
-    const skills = ['React.js', 'JavaScript', 'ES6+', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Sass', 'Meterial-UI', 'Git', 'jQuery'];
+    const skills = ['React.js', 'JavaScript', 'ES6+', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Rest API', 'Express', 'MongoDB', 'Sass', 'Meterial-UI', 'Git', 'jQuery'];
     const extraSkills = ['Photoshop', 'Illustrator', 'In-design', 'AutoCAD', 'Sketchup', 'Kerkythea', 'V-ray'];
 
     return (
@@ -57,7 +57,7 @@ const About = () => {
                     Courses I've taken:
                 </Typography>
                 <Box component='div'>
-                    <Typography>React and Typescript (Udemy - currently studying)</Typography>
+                    <Typography>React and Typescript (Udemy)</Typography>
                     <Typography >
                         Integrating React and Redux together with Typescript. TS design patterns, Package-based architecture, Redux middlewares, Web Assembly.
                     </Typography>
