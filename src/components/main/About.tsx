@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Stack, Button, Box, Link } from "@mui/material";
 
 const About = () => {

@@ -68,12 +68,6 @@ export default function Contact() {
         );
     }
 
-    interface FormValuesTypes {
-        email: string;
-        name: string;
-        message: string;
-    }
-
     const onSubmit = (formValues: any) => {
         // send via emailjs:
         init(process.env.REACT_APP_EMAILJS_USER_ID as string);
@@ -92,7 +86,6 @@ export default function Contact() {
                 console.log('FAILED...', err);
             });
     }
-
 
     // email validation:
     const validateEmails = (email: string) => {
