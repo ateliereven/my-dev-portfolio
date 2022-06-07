@@ -4,7 +4,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
-const Header = ({mode}) => {
+interface HeaderProps {
+    mode: string;
+}
+
+const Header: React.FC<HeaderProps> = ({mode}) => {
     return <div className="header">
         <div className={mode === 'light' ? "gradient" : 'dark-gradient'}>
         <Container className="slideDown" maxWidth="lg" sx={{display: 'flex', height: 'inherit'}}>

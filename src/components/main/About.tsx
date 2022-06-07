@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Stack, Button, Box, Link } from "@mui/material";
 
 const About = () => {
-    const skills = ['React.js', 'JavaScript', 'ES6+', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Rest API', 'Express', 'MongoDB', 'Sass', 'Meterial-UI', 'Git', 'jQuery'];
+    const skills = ['React.js (& hooks)', 'JavaScript', 'ES6+', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Node.js', 'Rest API', 'Express', 'MongoDB', 'Sass', 'Meterial-UI', 'Git', 'jQuery'];
     const extraSkills = ['Photoshop', 'Illustrator', 'In-design', 'AutoCAD', 'Sketchup', 'Kerkythea', 'V-ray'];
 
     return (

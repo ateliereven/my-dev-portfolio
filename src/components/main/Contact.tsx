@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef, ReactElement } from "react";
 import { Field, Form } from 'react-final-form';
 import { init } from '@emailjs/browser';
 import { send } from 'emailjs-com';
@@ -8,18 +8,25 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import SendIcon from '@mui/icons-material/Send';
 
-
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
     const containerRef = useRef(null);
 
-    const FIELDS = [
+    // create default fields for contact form:
+    interface Field {
+        label: string;
+        name: string;
+        icon: ReactElement;
+        placeholder: string;
+    }
+
+    const FIELDS: Field[] = [
         { label: 'Name', name: 'name', icon: <AccountCircle />, placeholder: 'Please enter your name' },
         { label: 'Email', name: 'email', icon: <EmailIcon/>, placeholder: 'Please enter your email' },
         { label: 'Message', name: 'message', icon: <ChatIcon />, placeholder: 'Drop me a message :)' },
     ];
     // create form fields:
-    const renderFields = (fields) => {
+    const renderFields = (fields: Field[]) => {
         return fields.map((field) => {
             return (
                 <Field
@@ -36,7 +43,7 @@ export default function Contact() {
         })
     }
     //Return an input element to the component prop of Field, and hook it with relevant properties deconstructed from formProps:  
-    const renderInput = ({ input, label, meta, icon, placeholder }) => {
+    const renderInput = ({ input, label, meta, icon, placeholder }: any) => {
         return (
             <TextField
                 label={label}
@@ -46,7 +53,7 @@ export default function Contact() {
                 error={meta.error && meta.touched ? true : false} // style as error
                 helperText={meta.error && meta.touched ? `${meta.error}` : ''} // display an error message
                 placeholder={placeholder}
-                size={input.name !== 'message' ? "small" : ""}
+                size={input.name !== 'message' ? "small" : undefined}
                 multiline={input.name !== 'message' ? false : true}
                 maxRows={6}
                 InputProps={{
@@ -61,17 +68,24 @@ export default function Contact() {
         );
     }
 
-    const onSubmit = (formValues) => {
+    interface FormValuesTypes {
+        email: string;
+        name: string;
+        message: string;
+    }
+
+    const onSubmit = (formValues: any) => {
         // send via emailjs:
-        init(process.env.REACT_APP_EMAILJS_USER_ID);
+        init(process.env.REACT_APP_EMAILJS_USER_ID as string);
         send(
-            process.env.REACT_APP_EMAILJS_SERVICE_ID,
-            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+            process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
             formValues,
             process.env.REACT_APP_EMAILJS_USER_ID
         )
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
+                console.log(formValues)
                 setSubmitted(true);
             })
             .catch((err) => {
@@ -81,7 +95,7 @@ export default function Contact() {
 
 
     // email validation:
-    const validateEmails = (email) => {
+    const validateEmails = (email: string) => {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (re.test(email) === false) return 'Please enter a valid email address';
     }
@@ -100,7 +114,12 @@ export default function Contact() {
                         <Form
                             onSubmit={onSubmit}
                             validate={(formValues) => {
-                                const errors = {};
+                                interface Errors {
+                                    email?: string;
+                                    name?: string;
+                                    message?: string;
+                                }
+                                const errors: Errors = {};
                                 //if no emails have been entered provide an empty string. if there are emails run the function:
                                 errors.email = validateEmails(formValues.email || '');
                                 if (!formValues.name) errors.name = "Name is required";

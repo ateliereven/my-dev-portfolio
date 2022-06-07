@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -9,14 +9,15 @@ import NavBar from "./components/NavBar";
 import Header from "./components/Header";
 import Main from "./components/main/Main";
 import Footer from "./components/Footer";
+import { PaletteMode } from "@mui/material";
 
 function App() {
 //enable dark mode by user preference:
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [mode, setMode] = useState(prefersDarkMode ? 'dark' : 'light');
+  const [mode, setMode] = useState<PaletteMode>(prefersDarkMode ? 'dark' : 'light');
 
   // passing a callback function to NavBar as props:
-  const handleChangeMode = (chosenMode) => {
+  const handleChangeMode = (chosenMode: PaletteMode) => {
     setMode(chosenMode);
   }
 

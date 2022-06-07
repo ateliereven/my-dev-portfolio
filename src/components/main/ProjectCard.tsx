@@ -6,8 +6,14 @@ import { Tooltip, CardActionArea, CardActions, Link, Paper, CardContent } from '
 import GitHubIcon from '@mui/icons-material/GitHub';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
-
-const ProjectCard = ({name, description, image, deploymentUrl, repoUrl}) => {
+interface ProjectCardProps {
+    name: string;
+    description: string;
+    image: string | undefined;
+    deploymentUrl: string;
+    repoUrl: string;
+}
+const ProjectCard: React.FC<ProjectCardProps> = ({name, description, image, deploymentUrl, repoUrl}) => {
     return <Grid item xs={12} md={4} lg={4}>
         <Card elevation={6} className="card" sx={{ backgroundColor: 'primary.main'}}>
             <CardActionArea >

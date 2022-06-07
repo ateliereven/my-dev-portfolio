@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types';
-import { AppBar, Toolbar, Typography, Slide, useScrollTrigger, Box, IconButton, Menu, MenuItem, Link } from '@mui/material';
+import { AppBar, Toolbar, Typography, Slide, useScrollTrigger, Box, IconButton, Menu, MenuItem, Link, PaletteMode } from '@mui/material';
 import WorkTwoToneIcon from '@mui/icons-material/WorkTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import DarkModeSwitch from "./DarkModeSwitch";
 
 // for hiding the header on scroll:
-function HideOnScroll(props) {
-    const { children } = props;
+interface Props {
+   children: React.ReactElement;
+}
+
+const HideOnScroll: React.FC<Props> = ({children}) => {
+
     const trigger = useScrollTrigger({
         target: undefined,
     });
@@ -20,11 +23,11 @@ function HideOnScroll(props) {
     );
 }
 
-HideOnScroll.propTypes = {
-    children: PropTypes.element.isRequired
-};
+interface NavBarProps {
+    changeMode: (chosenMode: PaletteMode) => void
+}
 
-const NavBar = (props) => {
+const NavBar: React.FC<NavBarProps> = ({changeMode}) => {
 
     // links on AppBar:
     const navLinks = [
@@ -47,21 +50,21 @@ const NavBar = (props) => {
     ];
 
     // for responsive menu button:
-    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElNav, setAnchorElNav] = useState<EventTarget & HTMLButtonElement | null>(null);
 
-    const handleOpenNavMenu = event => setAnchorElNav(event.currentTarget);
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorElNav(event.currentTarget);
     const handleCloseNavMenu = () => setAnchorElNav(null);
 
     // for dark mode switch button:
-    const [checked, setChecked] = React.useState(false);
-    const handleChange = (event) => {
+    const [checked, setChecked] = React.useState<boolean>(false);
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked);
-        props.changeMode(checked ? 'light' : 'dark');
+        changeMode(checked ? 'light' : 'dark');
     }
 
     
     return <>
-        <HideOnScroll {...props}>
+        <HideOnScroll>
             <AppBar>
                 <Toolbar>
                     <WorkTwoToneIcon color="secondary" sx={{ mr: 1, display: { xs: 'none', md: 'flex' } }} />
@@ -129,7 +132,7 @@ const NavBar = (props) => {
                         ))}
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <DarkModeSwitch checked={checked} onChange={handleChange} />
-                        <Typography variant="span" sx={{fontSize: '11px'}}>{`${checked ? 'dark' : 'light'} mode`}</Typography> 
+                        <Typography sx={{fontSize: '11px'}}>{`${checked ? 'dark' : 'light'} mode`}</Typography> 
                         </Box>                 
                     </Box>   
                 </Toolbar>
