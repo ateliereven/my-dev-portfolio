@@ -79,7 +79,6 @@ export default function Contact() {
         )
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
-                console.log(formValues)
                 setSubmitted(true);
             })
             .catch((err) => {
