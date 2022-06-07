@@ -95,7 +95,7 @@ function App() {
     <div >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <NavBar changeMode={handleChangeMode} />
+        <NavBar changeMode={handleChangeMode} initialMode={mode} />
         <Header mode={mode}/>
         <Main />
         <Footer />

@@ -63,6 +63,7 @@ const Main = () => {
 
     }, [projectImgUrl])
 
+    // calling fetchRepos when app launches:
     useEffect(() => {
         fetchRepos();
     }, [fetchRepos]);

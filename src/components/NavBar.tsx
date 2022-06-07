@@ -24,10 +24,11 @@ const HideOnScroll: React.FC<Props> = ({children}) => {
 }
 
 interface NavBarProps {
-    changeMode: (chosenMode: PaletteMode) => void
+    changeMode: (chosenMode: PaletteMode) => void,
+    initialMode: PaletteMode
 }
 
-const NavBar: React.FC<NavBarProps> = ({changeMode}) => {
+const NavBar: React.FC<NavBarProps> = ({changeMode, initialMode}) => {
 
     // links on AppBar:
     const navLinks = [
@@ -56,7 +57,7 @@ const NavBar: React.FC<NavBarProps> = ({changeMode}) => {
     const handleCloseNavMenu = () => setAnchorElNav(null);
 
     // for dark mode switch button:
-    const [checked, setChecked] = React.useState<boolean>(false);
+    const [checked, setChecked] = React.useState<boolean>(initialMode === 'light' ? false : true);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked);
         changeMode(checked ? 'light' : 'dark');
