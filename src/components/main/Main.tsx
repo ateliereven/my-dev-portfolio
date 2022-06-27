@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Container from '@mui/material/Container';
 
 import About from './About';
@@ -64,7 +64,7 @@ const Main = () => {
             }
         }
 
-    }, [projectImgUrl])
+    }, [])
 
     // calling fetchRepos when app launches:
     useEffect(() => {

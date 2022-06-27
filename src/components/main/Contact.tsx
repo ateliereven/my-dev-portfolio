@@ -1,7 +1,6 @@
 import { useState, useRef, ReactElement, memo } from "react";
 import { Field, Form } from 'react-final-form';
-import { init } from '@emailjs/browser';
-import { send } from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { Typography, Container, Button, Box, Grid, TextField, InputAdornment, Slide } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
@@ -70,8 +69,7 @@ const Contact = () => {
 
     const onSubmit = (formValues: any) => {
         // send via emailjs:
-        init(process.env.REACT_APP_EMAILJS_USER_ID as string);
-        send(
+        emailjs.send(
             process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
             process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
             formValues,
