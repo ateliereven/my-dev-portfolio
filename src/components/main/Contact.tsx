@@ -1,4 +1,4 @@
-import { useState, useRef, ReactElement } from "react";
+import { useState, useRef, ReactElement, memo } from "react";
 import { Field, Form } from 'react-final-form';
 import { init } from '@emailjs/browser';
 import { send } from 'emailjs-com';
@@ -8,7 +8,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import SendIcon from '@mui/icons-material/Send';
 
-export default function Contact() {
+const Contact = () => {
     const [submitted, setSubmitted] = useState(false);
     const containerRef = useRef(null);
 
@@ -162,3 +162,5 @@ export default function Contact() {
     )
 
 }
+
+export default memo(Contact);

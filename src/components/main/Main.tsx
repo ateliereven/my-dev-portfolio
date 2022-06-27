@@ -18,19 +18,22 @@ const Main = () => {
     const [AllProjects, setAllProjects] = useState<Repo[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<null | string>(null);
-    const projects = AllProjects.filter(project => { return (project.name === 'atelier-even-website' || project.name === 'my-sender' || project.name === 'notebook-js-ts') }).reverse();
-    const snippets = AllProjects.filter(project => { return (project.name !== 'atelier-even-website' && project.name !== 'my-sender' && project.name !== 'notebook-js-ts') }).reverse();
-    const projectImgUrl = useMemo(() => {
-        return [
-            atelierEven,
-            cardGame,
-            tradingApp,
-            mysender,
-            notebook,
-            usersLibrary,
-            weather,
-        ]
-    }, [])
+    const projects = AllProjects.filter(project => {
+        return (project.name === 'atelier-even-website' || project.name === 'my-sender' || project.name === 'notebook-js-ts')
+    }).reverse();
+    const snippets = AllProjects.filter(project => {
+        return (project.name !== 'atelier-even-website' && project.name !== 'my-sender' && project.name !== 'notebook-js-ts')
+    }).reverse();
+    const projectImgUrl = [
+        atelierEven,
+        cardGame,
+        tradingApp,
+        mysender,
+        notebook,
+        usersLibrary,
+        weather,
+    ];
+    
     // fetching data from the github api:
     const fetchRepos = useCallback(async () => {
         // getting repos from local storage:

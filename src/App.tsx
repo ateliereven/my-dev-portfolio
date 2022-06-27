@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -17,9 +17,9 @@ function App() {
   const [mode, setMode] = useState<PaletteMode>(prefersDarkMode ? 'dark' : 'light');
 
   // passing a callback function to NavBar as props:
-  const handleChangeMode = (chosenMode: PaletteMode) => {
+  const handleChangeMode = useCallback((chosenMode: PaletteMode) => {
     setMode(chosenMode);
-  }
+  }, [mode])
 
   // set color theme for the app, update theme only if the mode changes:
   const theme = useMemo(() => createTheme({

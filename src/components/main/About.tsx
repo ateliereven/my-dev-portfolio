@@ -1,3 +1,4 @@
+import React from 'react';
 import { Typography, Stack, Button, Box, Link } from "@mui/material";
 
 const About = () => {
@@ -102,4 +103,4 @@ const About = () => {
     )
 }
 
-export default About;
+export default React.memo(About);
