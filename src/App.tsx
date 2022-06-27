@@ -19,7 +19,7 @@ function App() {
   // passing a callback function to NavBar as props:
   const handleChangeMode = useCallback((chosenMode: PaletteMode) => {
     setMode(chosenMode);
-  }, [mode])
+  }, [])
 
   // set color theme for the app, update theme only if the mode changes:
   const theme = useMemo(() => createTheme({

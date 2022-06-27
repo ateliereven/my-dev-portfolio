@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import Container from '@mui/material/Container';
 
 import About from './About';
@@ -24,15 +24,17 @@ const Main = () => {
     const snippets = AllProjects.filter(project => {
         return (project.name !== 'atelier-even-website' && project.name !== 'my-sender' && project.name !== 'notebook-js-ts')
     }).reverse();
-    const projectImgUrl = [
-        atelierEven,
-        cardGame,
-        tradingApp,
-        mysender,
-        notebook,
-        usersLibrary,
-        weather,
-    ];
+    const projectImgUrl = useMemo(() => {
+        return [
+            atelierEven,
+            cardGame,
+            tradingApp,
+            mysender,
+            notebook,
+            usersLibrary,
+            weather,
+        ]
+    }, []);
     
     // fetching data from the github api:
     const fetchRepos = useCallback(async () => {
@@ -64,7 +66,7 @@ const Main = () => {
             }
         }
 
-    }, [])
+    }, [projectImgUrl])
 
     // calling fetchRepos when app launches:
     useEffect(() => {
