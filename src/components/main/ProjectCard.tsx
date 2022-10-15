@@ -14,18 +14,24 @@ interface ProjectCardProps {
     repoUrl: string;
 }
 const ProjectCard: React.FC<ProjectCardProps> = ({name, description, image, deploymentUrl, repoUrl}) => {
-    return <Grid item xs={12} md={4} lg={4}>
+    return <Grid item xs={12} sm={5} md={4} lg={4}>
         <Card elevation={6} className="card" sx={{ backgroundColor: 'primary.main'}}>
             <CardActionArea >
                 <Link href={deploymentUrl} target="_blank">
                 <CardContent component='div'>
                     <Paper elevation={4} component='img' src={image} />
                 </CardContent>
-                <CardContent sx={{ minHeight: '245px', paddingBottom: '8px !important', paddingTop: '5px'}}>
-                    <Typography gutterBottom variant="h5" component="div" color="primary.contrastText" sx={{ textTransform: 'capitalize' }}>
+                <CardContent sx={{ minHeight: '350px', paddingBottom: '8px !important', paddingTop: '5px'}}>
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            color="primary.contrastText"
+                            sx={{ textTransform: 'capitalize' }}
+                        >
                         {name.replace(/-/g, ' ')}
                     </Typography>
-                    <Typography  color="primary.contrastText" gutterBottom={true} >
+                    <Typography  color="primary.contrastText" variant="body2" gutterBottom={true} >
                         {description}
                     </Typography>
                 </CardContent>
@@ -34,12 +40,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({name, description, image, depl
             <CardActions  sx={{ backgroundColor: 'primary.light' }}>
                 <Tooltip title="view code">
                 <Link href={repoUrl} target="_blank">
-                        <GitHubIcon color="info" fontSize="large" />
+                        <GitHubIcon color="info" fontSize="medium" />
                  </Link>
                 </Tooltip>
                 <Tooltip title="view deployment">
                 <Link href={deploymentUrl} target="_blank">
-                    <RocketLaunchIcon color="info" fontSize="large" />
+                    <RocketLaunchIcon color="info" fontSize="medium" />
                  </Link>
                 </Tooltip>
             </CardActions>
