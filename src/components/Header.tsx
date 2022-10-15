@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({mode}) => {
                         <i>Orly Even</i>
                 </Typography>
                 <Typography variant="h3" color="primary.dark">
-                    Junior Frontend / Fullstack Developer
+                    Frontend / Fullstack Developer
                 </Typography>
                     <Stack direction="row" spacing={0.2}>
                         <Button href="#about" variant="contained" color="info" size="large" sx={{borderRadius: '20px', height: '40px', alignSelf: 'center'}} >
