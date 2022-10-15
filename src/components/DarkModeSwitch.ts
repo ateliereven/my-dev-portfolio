@@ -8,7 +8,7 @@ const DarkModeSwitch = styled(Switch)(({ theme }) => ({
     '& .MuiSwitch-switchBase': {
         marginLeft: 0,
         marginRight: 0,
-        marginTop: 6.5,
+        marginTop: 6.9,
         padding: 0,
         transform: 'translateX(7px)',
         '&.Mui-checked': {
